@@ -8,7 +8,8 @@ public://this is a very good observation question on BIT MANIPULATION
         int i=1;
         while(i<=n)
         {
-            val=((val<<(1+int(log2(i))))%mod+i)%mod;
+            int d=(1+int(log2(i)));
+            val=((val<<d)%mod+i)%mod;
             i++;
         }
         return val;
