@@ -1,1 +1,1 @@
-# LeetCode-solved
+# LeetCode && GFG - solved
