@@ -15,7 +15,7 @@ public:
             
             dq.push_back(i);
             
-            if(k<=i+1)
+            if(k<=i+1) //if window size is hitting k
                 ans.push_back(nums[dq.front()]);
         }
         
