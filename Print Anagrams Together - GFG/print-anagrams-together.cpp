@@ -20,11 +20,9 @@ class Solution{
             for(auto it:str)
                 fmap[it]++;
             
-            auto x=mp.find(fmap);
-            if(x!=mp.end())
-                mp[fmap].push_back(str);
-            else
-                mp[fmap].push_back(str);
+            
+            mp[fmap].push_back(str);
+            
         }
         
         vector<vector<string>>ans;
