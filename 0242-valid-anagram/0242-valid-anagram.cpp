@@ -2,14 +2,12 @@ class Solution {
 public:
     bool isAnagram(string s, string t) 
     {
-        if(s.size()!=t.size())
-            return false;
-        sort(s.begin(),s.end());
-        sort(t.begin(),t.end());
+        map<char,int>mp1,mp2;
+        for(auto it:s)
+            mp1[it]++;
+        for(auto it:t)
+            mp2[it]++;
         
-        for(int i=0;i<s.size();i++)
-            if(s[i]!=t[i])
-                return false;
-        return true;
+        return mp1==mp2;
     }
 };
