@@ -25,9 +25,7 @@ class Solution {
     ////////
     string isKrishnamurthy(int N) 
     {
-        if(check(N))
-            return "YES";
-        return "NO";
+        return check(N)?"YES":"NO";
     }
 };
 
