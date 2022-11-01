@@ -33,7 +33,7 @@ public:
             int cnt=0; //count of elements which are smaller or equal than mid element
             
             for(int i=0;i<R;++i)
-            cnt+=countEle(matrix,mid,i,C);
+                cnt+=countEle(matrix,mid,i,C);
             
             if(cnt<=(R*C/2))
                 l=mid+1;
