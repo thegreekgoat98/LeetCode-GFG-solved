@@ -1,8 +1,8 @@
 The idea of finding the median of an array is: 
 
-The median of an array has equal number of numbers on left as well as right.
+The median of an array has equal number of elements on left as well as right.
 
 example..
 
-1 2 3 4 5 6 6 8 8
+1 2 3 4 5 6 7 8 19
 here.. 5 is the median... and it has equal number of elements in left and right side
