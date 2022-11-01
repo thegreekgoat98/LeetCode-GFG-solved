@@ -12,8 +12,8 @@ public:
         //right to left
         else if(grid[i][j]==-1 && j-1>=0 && grid[i][j-1]==-1)
             return dfs(i+1,j-1,grid);
-        else if(grid[i][j]==1 && j+1>=grid[0].size())
-            return -1;
+        // else if(grid[i][j]==1 && j+1>=grid[0].size())
+        //     return -1;
         else
             return -1;
     }
