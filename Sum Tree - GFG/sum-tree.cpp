@@ -109,7 +109,6 @@ class Solution
         if(!root->left && !root->right)
             return true;
             
-        int sum=0;
         int a=findSum(root->left);
         int b=findSum(root->right);
         if(a+b!=root->data)
