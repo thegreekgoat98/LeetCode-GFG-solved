@@ -2,13 +2,18 @@ class Solution {
 public:
     vector<int> singleNumber(vector<int>& nums) 
     {
-        unordered_map<int,int>m;
-        for(auto it:nums)
-            m[it]++;
-        vector<int>ans;
-        for(auto it:m)
-            if(it.second==1)
-                ans.push_back(it.first);
-        return ans;
+        long long xxory=0;
+        for(int i:nums)
+            xxory^=i;
+        long long rsb=xxory & -xxory;
+        int a=0,b=0;
+        for(int i:nums)
+        {
+            if((rsb&i)==0)
+                a^=i;
+            else
+                b^=i;
+        }
+        return {a,b};
     }
 };
