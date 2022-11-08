@@ -25,9 +25,7 @@ class Solution{
                 b=b^Arr[i];
         }
         
-        if(a>b)
-            return {a,b};
-        return {b,a};
+        return {max(a,b),min(a,b)};
             
     }
     //Pepcoding-SUmeet malik you beauty!! 
