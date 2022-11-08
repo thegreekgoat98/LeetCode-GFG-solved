@@ -5,9 +5,7 @@ public:
         stack<char>st;
         for(char ch:s)
         {
-            if(st.empty())
-                st.push(ch);
-            else if(abs(st.top()-ch)==32)
+            if(!st.empty() && abs(st.top()-ch)==32)
                 st.pop();
             else
                 st.push(ch);
