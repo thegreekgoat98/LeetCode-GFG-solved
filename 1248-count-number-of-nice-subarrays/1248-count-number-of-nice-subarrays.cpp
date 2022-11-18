@@ -11,9 +11,9 @@ public:
             int rem=nums[i]%2;
             sum+=rem;
             auto x=mp.find(sum-k);
-            if(x==mp.end())
+            if(x==mp.end()) //if not found
                 mp[sum]++;
-            else
+            else //if found
             {
                 mp[sum]++;
                 ans+=mp[sum-k];
