@@ -108,15 +108,6 @@ class Solution{
         return ans;
     }
     
-    bool isEqual(vector<int>&a,vector<int>&b)
-    {
-        if(a.size()!=b.size())
-            return false;
-        for(int i=0;i<a.size();++i)
-            if(a[i]!=b[i])
-                return false;
-        return true;
-    }
     
     
     bool areAnagrams(Node *root1, Node *root2)
@@ -130,11 +121,8 @@ class Solution{
         {
             sort(bfs1[i].begin(),bfs1[i].end());
             sort(bfs2[i].begin(),bfs2[i].end());
-        }
-        
-        for(int i=0;i<bfs1.size();++i)
-        {
-            if(!isEqual(bfs1[i],bfs2[i]))
+            
+            if(bfs1[i]!=bfs2[i])
                 return false;
         }
         return true;
