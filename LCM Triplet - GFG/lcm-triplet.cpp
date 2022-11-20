@@ -23,8 +23,8 @@ class Solution {
             else
                 return N*(N-1)*(N-3);
         }
-        else
-            return N*(N-1)*(N-2);
+        
+        return N*(N-1)*(N-2);
     }
 };
 
