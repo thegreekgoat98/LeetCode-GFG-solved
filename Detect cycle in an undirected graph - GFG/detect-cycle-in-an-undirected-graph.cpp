@@ -6,52 +6,34 @@ using namespace std;
 class Solution {
   public:
   
-    bool checkforCycle(int i, vector<int> adj[], vector<bool>&vis)
+    bool checkCycle(int node,int par,vector<int> adj[],vector<bool>&vis)
     {
-        queue<pair<int,int>>q;
-        q.push({i,-1}); //{node,parent}
-        vis[i]=true;
+        vis[node]=true;
         
-        while(!q.empty())
+        for(auto it:adj[node])
         {
-            int node=q.front().first; //node
-            int par=q.front().second; //[parent]
-            q.pop();
-            
-            for(auto it:adj[node]) //traversing the adjacant node of the node
-            {
-                if(!vis[it]) //if not visited, put that in queue and mark it visited.
-                {
-                    vis[it]=true;
-                    q.push({it,node});
-                }
-                else if(par!=it) //if visited, and this current node(it) is not the parent of the node
+            if(vis[it] && it!=par)
+                return true;
+            else if(!vis[it])
+                if(checkCycle(it,node,adj,vis))
                     return true;
-            }
         }
         return false;
     }
-  
-  
-  
-  
   
   
     // Function to detect cycle in an undirected graph.
     bool isCycle(int V, vector<int> adj[]) 
     {
-        vector<bool>vis(V,false); //only V nodes, cuz node numbering starts from 0.
-        
-        for(int i=0;i<V;++i) //because node numbering starts from 0.
+        vector<bool>vis(V,false);
+        for(int i=0;i<V;++i)
         {
             if(!vis[i])
-                if(checkforCycle(i,adj,vis)) //if at any component there is cycle, we will assume, there is a cycle in the graph.
+                if(checkCycle(i,-1,adj,vis))
                     return true;
         }
         return false;
     }
-    
-    
 };
 
 //{ Driver Code Starts.
