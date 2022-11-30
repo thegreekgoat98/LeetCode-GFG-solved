@@ -2,12 +2,12 @@ class Solution {
 public:
     bool uniqueOccurrences(vector<int>& arr) 
     {
-        unordered_map<int,int>freq;
-        for(int i:arr)
-            freq[i]++;
+        unordered_map<int,int>mp;
+        for(int num:arr)
+            mp[num]++;
         
-        set<int>st;
-        for(auto it:freq)
+        unordered_set<int>st;
+        for(auto it:mp)
         {
             int occ=it.second;
             auto x=st.find(occ);
