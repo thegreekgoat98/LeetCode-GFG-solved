@@ -8,14 +8,16 @@ public:
         sort(b.begin(),b.end());
         if(a==b)
             return true;
-        /////////////////////////////////////
-        vector<bool>al(26,false),bl(26,false);
+        
+        //to check both the strings have same characters
+        vector<bool>al(26,false),bl(26,false); 
         for(int i=0;i<a.size();++i)
         {
             al[a[i]-'a']=true;
             bl[b[i]-'a']=true;
         }
         /////////////////////////////////////
+        //to match the frequency of characters of both the strings
         vector<long>afreq(26,0),bfreq(26,0);
         for(int i=0;i<a.size();++i)
         {
@@ -27,4 +29,7 @@ public:
         
         return afreq==bfreq && al==bl; 
     }
+    
+    
+    //if same characters are present and frequency of the same characters are equal in any order, then the two strings are close.
 };
