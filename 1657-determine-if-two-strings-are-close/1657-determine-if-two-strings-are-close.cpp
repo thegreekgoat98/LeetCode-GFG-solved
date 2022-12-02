@@ -31,5 +31,5 @@ public:
     }
     
     
-    //if same characters are present and frequency of the same characters are equal in any order, then the two strings are close.
+    //if same characters are present in both strings and frequency of the same characters are equal in any order, then the two strings are close.
 };
