@@ -9,9 +9,9 @@ public:
         for(int i:nums)
             mp[i]++;
         
-        sort(nums.begin(),nums.end(),[&](int&b,int&a)
+        sort(nums.begin(),nums.end(),[&](int&a,int&b)
              {
-                 return mp[b]==mp[a]?b>a:mp[b]<mp[a];
+                 return mp[a]==mp[b]?a>b:mp[a]<mp[b];
              });
         //first time used lambda function in the above line
         
