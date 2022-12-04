@@ -2,7 +2,7 @@ class Solution {
 public:
     int edgeScore(vector<int>& edges) 
     {
-        map<int,long>mp;  //{ind,sum}
+        map<int,long>mp;  
         for(int i=0;i<edges.size();++i)
             mp[edges[i]]+=i;
         long maxi=LLONG_MIN;
