@@ -93,30 +93,28 @@ struct Node {
 
 class Solution {
   public:
-    void inorder(Node *root,priority_queue<int,vector<int>,greater<int>>&pq)
+    int ans=-1;
+    
+    void inorder(Node*root,int& k)
     {
         if(!root)
             return;
-        inorder(root->left,pq);
-        pq.push(root->data);
-        inorder(root->right,pq);
+        inorder(root->left,k);
+        k--;
+        if(k==0)
+        {
+            ans=root->data;
+            return;
+        }
+        inorder(root->right,k);
     }
-  
-  
     // Return the Kth smallest element in the given BST
     int KthSmallestElement(Node *root, int K) 
     {
-        if(!root)
-            return 0;
-        priority_queue<int,vector<int>,greater<int>>pq;
-        inorder(root,pq);
-        if(pq.size()<K)
-            return -1;
-        K--;
-        while(K--)
-            pq.pop();
-        return pq.top();
+        inorder(root,K);
+        return ans;
     }
+    //SC->O(1)
 };
 
 //{ Driver Code Starts.
