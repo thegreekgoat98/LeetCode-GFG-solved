@@ -4,7 +4,7 @@ public:
     {
         int n=matrix.size();
         int m=matrix[0].size();
-        
+        //keeping all minimum sum from top to bottom column of every column in the first row 
         for(int i=n-2;i>=0;--i)
         {
             for(int j=0;j<m;++j)
@@ -18,6 +18,7 @@ public:
             }
         }
         /////////////////
+        //from the stored minimum sums in first row, finding the minimum sum and returning it
         int ans=INT_MAX;
         for(int j=0;j<m;++j)
             ans=min(ans,matrix[0][j]);
@@ -25,3 +26,4 @@ public:
         return ans;
     }
 };
+//https://www.youtube.com/watch?v=bz69jX0NUTM
