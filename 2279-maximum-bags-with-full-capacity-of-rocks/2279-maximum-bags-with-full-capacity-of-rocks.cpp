@@ -10,11 +10,11 @@ public:
         int cnt=0;
         for(int i=0;i<diff.size();i++)
         {
-            if(!diff[i])
-            {
-                cnt++;
-                continue;
-            }
+            // if(!diff[i])
+            // {
+            //     cnt++;
+            //     continue;
+            // }
             if(diff[i]<=addr)
             {
                 cnt++;
