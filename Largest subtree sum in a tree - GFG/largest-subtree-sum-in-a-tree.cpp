@@ -82,14 +82,14 @@ Node* buildTree(string str) {
 class Solution {
   public:
   
-   int findSum(Node* root)
+   int findSum(Node* root) //Kind of PostOrder Traversal which finds subtree sum of a particular node
    {
         if(!root)
             return 0;
         return root->data+findSum(root->left)+findSum(root->right);
    }
   
-   void findMaxSum(Node* root,int&ans)
+   void findMaxSum(Node* root,int&ans) //going to every node and finding the subtree sum on left and right side and updating the answer
    {
         if(!root)
             return;
@@ -107,6 +107,7 @@ class Solution {
         return ans;
     }
 };
+// Traverse to every node in the tree, find subtree sum on left and right side, and update the max sum. 
 
 
 //{ Driver Code Starts.
