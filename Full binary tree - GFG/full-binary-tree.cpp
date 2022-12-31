@@ -110,9 +110,9 @@ struct Node {
 // Return True if the given Binary Tree is a Full Binary Tree. Else return False
 bool isFullTree (struct Node* root)
 {
-    if(!root->left && !root->right)
+    if(!root->left && !root->right) //if the node has 0 child nodes
         return true;
-    if(root->left && root->right)
+    if(root->left && root->right) //if the node has 2 nodes 
         return isFullTree(root->left) && isFullTree(root->right);
     
     return false;
