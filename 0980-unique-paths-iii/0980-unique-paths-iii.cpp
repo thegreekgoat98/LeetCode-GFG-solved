@@ -6,7 +6,7 @@ public:
     ///////////////////
     bool isValid(int i,int j,vector<vector<int>> grid)
     {
-        if(i>=0 && i<grid.size() && j>=0 && j<grid[0].size() && grid[i][j]!=3 && grid[i][j]!=-1)
+        if(i>=0 && i<grid.size() && j>=0 && j<grid[0].size() && grid[i][j]!=-1)
             return true;
         return false;
     }
@@ -18,7 +18,7 @@ public:
             ans++;
             return;
         }
-        grid[i][j]=3;  
+        grid[i][j]=-1;  
         for(int k=0;k<4;++k)
         {
             int ni=dx[k]+i;
