@@ -24,17 +24,21 @@ public:
             }
         }
         
-        if(word[0]>='A' && word[0]<='Z')
-            OnlyFirstCapital=true;
-        
-        for(int i=1;i<word.size();++i)
+        while(word[0]>='A' && word[0]<='Z')
         {
-            if(word[i]>='A' && word[i]<='Z')
+            OnlyFirstCapital=true;
+            
+            for(int i=1;i<word.size();++i)
             {
-                OnlyFirstCapital=false;
-                break;
+                if(word[i]>='A' && word[i]<='Z')
+                {
+                    OnlyFirstCapital=false;
+                    break;
+                }
             }
+            break;
         }
+        
         /////////////////////////
         return allCapital || allSmall || OnlyFirstCapital;
             
