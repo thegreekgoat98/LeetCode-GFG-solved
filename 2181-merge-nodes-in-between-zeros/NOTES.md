@@ -1,0 +1,1 @@
+//took help from -- https://leetcode.com/problems/merge-nodes-in-between-zeros/discuss/1784963/c%2B%2B-SC-O(1)
