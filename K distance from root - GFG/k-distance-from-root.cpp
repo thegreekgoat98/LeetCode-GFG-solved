@@ -126,10 +126,11 @@ vector<int> Kdistance(struct Node *root, int k)
     queue<struct Node*>q;
     q.push(root);
     
-    int level=0;
+    int level=-1;
     while(!q.empty())
     {
         int sz=q.size();
+        level++;
         for(int i=0;i<sz;++i)
         {
             auto node=q.front();
@@ -141,7 +142,6 @@ vector<int> Kdistance(struct Node *root, int k)
             if(node->right)
                 q.push(node->right);
         }
-        level++;
     }
     return ans;
 }
