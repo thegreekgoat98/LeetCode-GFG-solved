@@ -15,7 +15,7 @@ public:
                 int y2=points[j][1];
                 
                 if(x1==x2)
-                    mp[10002]++;
+                    mp[10002]++; // lets think 10002 as infinity
                 else
                 {
                     double slope=(double)(y2-y1)/(x2-x1);
