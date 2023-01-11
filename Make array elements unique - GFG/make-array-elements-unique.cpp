@@ -28,7 +28,7 @@ class Solution {
         }
         return cnt;
     }
-};
+};//took help from another answer
 
 //{ Driver Code Starts.
 
