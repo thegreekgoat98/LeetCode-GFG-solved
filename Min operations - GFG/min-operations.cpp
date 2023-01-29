@@ -10,7 +10,7 @@ class Solution {
     {
         if(a==b) //if both are same, they do not require more operations.
             return 0;
-        if((a&b)==a || (a&b)==b) // refer to the video link for clear understanding.
+        if((a&b)==min(a,b)) // refer to the video link for clear understanding.
             return 1;
         return 2; //a&0=0 ....... b&0=0 ---> So in this case answer is 2.
     }
