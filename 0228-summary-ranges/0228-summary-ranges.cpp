@@ -23,4 +23,6 @@ public:
         ans.push_back(getStr(first,nums.back()));
         return ans;
     }
+    
+    //https://leetcode.com/problems/summary-ranges/discuss/914271/C%2B%2B-super-simple-and-short-intuitive-solution-faster-than-100
 };
