@@ -14,7 +14,7 @@ class Solution {
     {
         int i=0,j=0;
         long long sum=0;
-        while(j<100)
+        while(j<75)
         {
             sum+=GeekNum[j];
             if(j-i+1<K)
