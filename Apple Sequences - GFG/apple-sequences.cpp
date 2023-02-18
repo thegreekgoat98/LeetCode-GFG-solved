@@ -20,7 +20,7 @@ public:
                 if(arr[j]=='O')
                     m--;
             }
-            else
+            else if(m==0)
             {
                 if(arr[j]=='O')
                 {
