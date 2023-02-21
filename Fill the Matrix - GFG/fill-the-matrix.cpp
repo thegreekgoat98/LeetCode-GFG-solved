@@ -20,34 +20,34 @@ public:
     }
     
     int minIteration(int N, int M, int x, int y)
-    {
+    {    
         vector<vector<int>>mat(N,vector<int>(M,0));
         mat[x-1][y-1]=1;
         queue<pair<pair<int,int>,int>>q;
         q.push({{x-1,y-1},0});
-        int cnt=0;
+        int ans=0;
         while(!q.empty())
         {
             auto temp=q.front();
             q.pop();
             int i=temp.first.first;
             int j=temp.first.second;
-            cnt=temp.second;
+            ans=temp.second;
             
             for(int k=0;k<4;++k)
             {
-                int ni=dx[k]+i;
-                int nj=dy[k]+j;
+                int ni=i+dx[k];
+                int nj=j+dy[k];
                 
-                if(isValid(ni,nj,mat) && mat[ni][nj]==0)
+                if(isValid(ni,nj,mat)  && mat[ni][nj]==0)
                 {
-                    q.push({{ni,nj},cnt+1});
                     mat[ni][nj]=1;
+                    q.push({{ni,nj},ans+1});
                 }
             }
+            
         }
-        return cnt;
-        
+        return ans;
     }
 };
 
