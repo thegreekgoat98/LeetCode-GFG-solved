@@ -12,7 +12,7 @@ public:
                 int curr=prices[j]-prices[i];
                 ans=max(ans,curr);
             }
-            else 
+            else //if prices[r]<prices[l]
                 i=j;
             
             j++;
