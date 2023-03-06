@@ -12,8 +12,8 @@ public:
 	
 	int sum(int arr[],int ind,int n)
 	{
-	    if(ind==n)
-	        return 0;
+	    if(ind==n-1)
+	        return arr[n-1];
 	    
 	    return arr[ind]+sum(arr,ind+1,n);
 	}
