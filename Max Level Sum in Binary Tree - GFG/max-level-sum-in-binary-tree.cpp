@@ -99,8 +99,7 @@ class Solution{
     {
         queue<Node*>q;
         q.push(root);
-        int maxi=INT_MIN;
-        
+        int maxSum=INT_MIN;
         while(!q.empty())
         {
             int sz=q.size();
@@ -109,7 +108,6 @@ class Solution{
             {
                 auto node=q.front();
                 q.pop();
-                
                 curr+=node->data;
                 
                 if(node->left)
@@ -117,10 +115,10 @@ class Solution{
                 if(node->right)
                     q.push(node->right);
             }
-            maxi=max(maxi,curr);
+            maxSum=max(maxSum,curr);
         }
         
-        return maxi;
+        return maxSum;
     }
 };
 
