@@ -39,9 +39,8 @@ Hence maximum sum is 6</span></pre>
 <span style="font-size:18px"><strong>Your Task: &nbsp;</strong><br>
 You dont need to read input or print anything. Complete the function <strong>maxLevelSum()</strong> which takes root node as input parameter and returns the maximum sum of any horizontal level in the given Binary Tree.</span></p>
 
-<p><br>
-<span style="font-size:18px"><strong>Expected Time Complexity:</strong> O(N)<br>
-<strong>Expected Auxiliary Space: </strong>O(N)</span></p>
+<p><span style="font-size:18px"><strong>Expected Time Complexity:</strong> O(N)</span>, <span style="font-size:18px">where N is no of node.</span><br>
+<span style="font-size:18px"><strong>Expected Auxiliary Space:</strong> O(W), Where W is the max width of the tree.</span></p>
 
 <p><br>
 <span style="font-size:18px"><strong>Constraints:</strong><br>
