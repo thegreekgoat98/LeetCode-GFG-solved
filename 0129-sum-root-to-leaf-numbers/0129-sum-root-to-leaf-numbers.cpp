@@ -9,29 +9,29 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-class Solution 
-{
+class Solution {
 public:
     int ans=0;
-    void dfs(TreeNode* node,int val)
+    
+    void helper(TreeNode* root,int curr)
     {
-        if(node==NULL)
+        if(!root)
             return;
-        val=val*10+node->val;
-        if(node->left==NULL && node->right==NULL)
+        curr=curr*10+root->val;
+        if(!root->left && !root->right)
         {
-            ans=ans+val;
+            ans+=curr;
             return;
         }
-        dfs(node->left,val);
-        dfs(node->right,val);
+        helper(root->left,curr);
+        helper(root->right,curr);
+        
     }
-    //////////
+    ///////////////////////////////////////
     int sumNumbers(TreeNode* root) 
     {
-        if(root==NULL)
-            return 0;
-        dfs(root,0); //0=val
+        helper(root,0);
+        
         return ans;
     }
 };
