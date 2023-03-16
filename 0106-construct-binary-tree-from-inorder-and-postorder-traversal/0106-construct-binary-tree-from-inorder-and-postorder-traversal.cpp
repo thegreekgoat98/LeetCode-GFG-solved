@@ -20,7 +20,7 @@ public:
         
         int i=inStart; //i----> pivot index
         for(;i<=inEnd;++i)
-            if(inorder[i]==root->val)
+            if(inorder[i]==postorder[postEnd])
                 break;
         
         int leftSize=i-inStart;
