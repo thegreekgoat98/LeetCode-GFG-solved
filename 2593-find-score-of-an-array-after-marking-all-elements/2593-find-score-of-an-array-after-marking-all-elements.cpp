@@ -11,11 +11,13 @@ public:
             pq.push({nums[i],i});
             
         long long score=0;
-        while(!pq.empty())
+        int marked=0;
+        while(!pq.empty() || marked<n)
         {
             int ele=pq.top().first;
             int pos=pq.top().second;
             pq.pop();
+            
             
             if(vis[pos]==false)
             {
@@ -26,6 +28,7 @@ public:
                     vis[prev]=true;
                 if(next<n)
                     vis[next]=true;
+                marked+=3;
             }
             
         }
