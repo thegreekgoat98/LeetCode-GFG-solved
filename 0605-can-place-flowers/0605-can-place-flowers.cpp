@@ -11,7 +11,6 @@ public:
             {
                 n--;
                 flowerbed[i]=1;
-                i++;
             }     
         }
         
