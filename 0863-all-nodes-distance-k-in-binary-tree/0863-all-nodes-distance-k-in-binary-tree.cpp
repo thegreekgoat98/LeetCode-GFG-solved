@@ -38,8 +38,11 @@ public:
         /*1. Convert the given tree to a graph
         2. BFS*/
         
+        //1.
         makeGraph(root);
         
+        
+        //2.
         queue<int>q;
         unordered_map<int,bool>vis;
         q.push(target->val);
