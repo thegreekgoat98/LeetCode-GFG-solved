@@ -25,16 +25,16 @@ public:
         }
         
         vector<bool>vis(n,false);
-        long long visCnt=0;
+        long long visCnt=0; //it stores the number of visited nodes till now
         long long ans=0;
         
         for(int i=0;i<n;++i)
         {
             if(!vis[i])
             {
-                long long cnt=0;
+                long long cnt=0; //it stores the number of nodes in the current component
                 dfs(i,adj,vis,visCnt,cnt); 
-                ans+=cnt*(n-visCnt);
+                ans+=cnt*(n-visCnt); /*figured this formula by myself, whooooooo hooooo*/
             }
                 
         }
