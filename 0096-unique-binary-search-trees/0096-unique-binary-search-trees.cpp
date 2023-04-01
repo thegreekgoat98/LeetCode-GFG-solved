@@ -14,7 +14,7 @@ public:
             ans+=solve(dp,i-1)*solve(dp,n-i);
         
         dp[n]=ans;
-        return dp[n]=ans;
+        return dp[n];
     }
     
     int numTrees(int n) 
