@@ -12,13 +12,16 @@ public:
     vector<int> successfulPairs(vector<int>& spells, vector<int>& potions, long long success) 
     {
         int n=spells.size();
+        int m=potions.size();
+        
         vector<int>ans(n);
         sort(potions.begin(),potions.end());
         
         for(int i=0;i<n;++i)
         {
             int l=0,r=potions.size()-1;
-            int res=potions.size();
+            int res=m;
+            
             while(l<=r)
             {
                 int mid=l+(r-l)/2;
