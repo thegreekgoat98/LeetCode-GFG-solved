@@ -2,29 +2,25 @@ class Solution {
 public:
     int partitionString(string s) 
     {
+        vector<int>lastSeen(26,-1);
         int cnt=0;
+        int currentSubstrStart=0;
         
-        set<char>S;
         for(int i=0;i<s.size();++i)
         {
-            if(S.empty())
+            char ch=s[i];
+            
+            if(lastSeen[ch-'a']>=currentSubstrStart)
             {
                 cnt++;
-                S.insert(s[i]);
-                continue;
+                currentSubstrStart=i;
             }
             
-            if(S.count(s[i]))
-            {
-                cnt++;
-                S.clear();
-                S.insert(s[i]);
-            }
-            else
-                S.insert(s[i]);
-                
+            lastSeen[ch-'a']=i;
         }
         
-        return cnt;
+        return cnt+1;
     }
 };
+
+// https://www.youtube.com/watch?v=QonXo5Em5VA
