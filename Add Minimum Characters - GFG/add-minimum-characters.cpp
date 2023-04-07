@@ -9,31 +9,33 @@ using namespace std;
 
 class Solution{   
 public:
- bool ispalindrome(string s)
- {
-     int i=0,j=s.size()-1;
-     while(i<j)
-     {
-         if(s[i]!=s[j])
-         return false;
-         else 
-         i++;
-         j--;
-     }
-     return true;
- }
-    int addMinChar(string str){    
-        //code here
-        if(ispalindrome(str)==true)
-        return 0;
-        for(int i=str.length()-1;i>=0;i--)
+    bool ispalindrome(string& str)
+    {
+        int i=0,j=str.size()-1;
+        while(i<j)
         {
-            if(ispalindrome(str.substr(0,i)))
-            {
-                return str.length()-i;
-            }
+            if(str[i]!=str[j])
+                return false;
+            else
+                i++;
+                
+            j--;
         }
-        return str.length();
+        return true;
+    }
+    //////////////////////////////////
+    int addMinChar(string str)
+    {   
+        if(ispalindrome(str))
+            return 0;
+        // int n=str.size();
+        for(int i=str.size()-1;i>=0;i--)
+        {
+            string sub=str.substr(0,i);
+            if(ispalindrome(sub))
+                return str.size()-i;
+        }
+        return str.size();
     }
 };
 
