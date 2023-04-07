@@ -28,7 +28,7 @@ public:
     {   
         if(ispalindrome(str))
             return 0;
-        // int n=str.size();
+        int n=str.size();
         for(int i=str.size()-1;i>=0;i--)
         {
             string sub=str.substr(0,i);
