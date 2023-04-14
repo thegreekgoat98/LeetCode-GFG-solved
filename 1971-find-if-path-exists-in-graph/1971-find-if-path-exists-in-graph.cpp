@@ -1,12 +1,20 @@
 class Solution {
 public:
-    void dfs(int node,vector<bool>&vis,vector<int>adj[])
+    void dfs(int node,vector<bool>&vis,vector<int>adj[],int end)
     {
         vis[node]=true;
         
         for(auto&it:adj[node])
+        {
+            if(it==end)
+            {
+                vis[end]=true;
+                return;
+            }
             if(!vis[it])
-                dfs(it,vis,adj);
+                dfs(it,vis,adj,end);
+        }
+            
     }
     //////////////
     bool validPath(int n, vector<vector<int>>& edges, int source, int destination) 
@@ -21,7 +29,7 @@ public:
             adj[v].push_back(u);
         }
         vector<bool>vis(n,false);
-        dfs(source,vis,adj);
+        dfs(source,vis,adj,destination);
         
         return vis[destination];
     }
