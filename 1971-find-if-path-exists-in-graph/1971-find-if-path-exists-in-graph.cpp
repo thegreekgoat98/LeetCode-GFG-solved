@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void dfs(int node,vector<bool>&vis,vector<int>adj[],int end)
+    void dfs(int node,unordered_map<int,bool>&vis,vector<int>adj[],int end)
     {
         vis[node]=true;
         
@@ -28,7 +28,7 @@ public:
             adj[u].push_back(v);
             adj[v].push_back(u);
         }
-        vector<bool>vis(n,false);
+        unordered_map<int,bool>vis;
         dfs(source,vis,adj,destination);
         
         return vis[destination];
