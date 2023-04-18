@@ -1,0 +1,1 @@
+https://leetcode.com/problems/merge-strings-alternately/discuss/1075483/C%2B%2B-2-pointers
