@@ -21,8 +21,8 @@ public:
         while(!dq.empty())
         {
             int sz=dq.size();
-            ll l=dq.front().second;
-            ll r=dq.back().second;
+            ll l=dq.front().second; //index of Extreame Left node of the level
+            ll r=dq.back().second;  //index of Extreame Right node of the level
             ans=max(ans,r-l+1);
             while(sz--)
             {
@@ -39,4 +39,6 @@ public:
         
         return ans;
     }
+    
+    //https://www.youtube.com/watch?v=hwjd0U36MUE -->> Always the legend MIK
 };
