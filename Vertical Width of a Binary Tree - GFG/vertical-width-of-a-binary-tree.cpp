@@ -108,7 +108,7 @@ int verticalWidth(Node* root)
 {
     if(!root)
         return 0;
-    unordered_map<int,int>mp;  //{level,{nodes}}
+    unordered_map<int,int>mp;  //{level,no of nodes of that level}
     queue<pair<Node*,int>>q; //{node,level}
     q.push({root,0});
     mp[0]++;
