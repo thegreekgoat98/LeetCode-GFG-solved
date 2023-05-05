@@ -1,36 +1,26 @@
-     //sliding window technique
 class Solution {
-    
 public:
-    bool isVowel(char ch)
+    int maxVowels(string s, int k)
     {
-        if(ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u')
-            return true;
-        return false;
-    }
-    
-    int maxVowels(string s, int k) 
-    {
-        int i=0,j=0;
         int cnt=0;
-        int maxi=INT_MIN;
+        int maxi=0;
+        int i=0,j=0;
         while(j<s.size())
         {
-            if(isVowel(s[j]))
+            if(s[j]=='a' || s[j]=='e' || s[j]=='i' || s[j]=='o' || s[j]=='u')
                 cnt++;
             if(j-i+1<k)
                 j++;
             else
             {
                 maxi=max(maxi,cnt);
-                if(isVowel(s[i]))
+                if(s[i]=='a' || s[i]=='e' || s[i]=='i' || s[i]=='o' || s[i]=='u')
                     cnt--;
                 i++;
-                j++;
-                
+                j++;    
             }
         }
-        return maxi;
         
+        return maxi;
     }
 };
