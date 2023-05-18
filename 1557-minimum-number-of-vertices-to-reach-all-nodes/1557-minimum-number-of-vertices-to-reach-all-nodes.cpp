@@ -3,13 +3,13 @@ public:
     vector<int> findSmallestSetOfVertices(int n, vector<vector<int>>& edges)
     {
         vector<int>ans;
-        vector<bool>seen(n);
+        vector<bool>IndegreeZero(n,true);
         
         for(auto& e:edges)
-            seen[e[1]]=true;
+            IndegreeZero[e[1]]=false;
         
         for(int i=0;i<n;++i)
-            if(!seen[i])
+            if(IndegreeZero[i])
                 ans.push_back(i);
         
         return ans;
