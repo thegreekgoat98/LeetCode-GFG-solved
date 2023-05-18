@@ -3,7 +3,7 @@ public:
     vector<int> findSmallestSetOfVertices(int n, vector<vector<int>>& edges)
     {
         vector<int>ans;
-        vector<bool>IndegreeZero(n,true);
+        vector<bool>IndegreeZero(n,true); //true if indegree is 0
         
         for(auto& e:edges)
             IndegreeZero[e[1]]=false;
