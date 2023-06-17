@@ -9,21 +9,30 @@ using namespace std;
 // insert() and findFrequency()
 class Solution{
     public:
-    unordered_map<int,int>mp;
+    
     // Function to insert element into the queue
     void insert(queue<int> &q, int k)
     {
         q.push(k);
-        mp[k]++;
     }
     
     // Function to find frequency of an element
     // return the frequency of k
     int findFrequency(queue<int> &q, int k)
     {
-        if(mp[k]==0)
-            return -1;
-        return mp[k];
+        int sz=q.size();
+        int cnt=0;
+        while(sz--)
+        {
+            int ele=q.front();
+            q.pop();
+            q.push(ele);
+            
+            if(ele==k)
+                cnt++;
+        }
+        
+        return cnt==0 ? -1 : cnt;
     }
     
 };
