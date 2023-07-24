@@ -52,12 +52,12 @@ class Solution
        {
            int sz=q.size();
            
-           for(int i=0;i<sz;++i)
+           while(sz--)
            {
                Node* node=q.front();
                q.pop();
                
-               if(i==sz-1)
+               if(sz==0)
                   ans.push_back(node->data);
                
                 if(node->left)
