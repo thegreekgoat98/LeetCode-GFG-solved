@@ -129,44 +129,42 @@ struct Node
 //Function to return a list containing the level order traversal in spiral form.
 vector<int> findSpiral(Node *root)
 {
-    if(!root)
-        return {};
     vector<int>ans;
+    
     queue<Node*>q;
     q.push(root);
-    bool flag=true;
     
+    bool flag=false;
     while(!q.empty())
     {
         int sz=q.size();
         vector<int>temp;
+        
         while(sz--)
         {
-            auto node=q.front();
+            Node* node=q.front();
             q.pop();
+            temp.push_back(node->data);
             
             if(node->left)
                 q.push(node->left);
             if(node->right)
                 q.push(node->right);
-            
-            temp.push_back(node->data);
         }
+        
         if(flag)
         {
-            flag=false;
-            reverse(temp.begin(),temp.end());
             for(auto&it:temp)
                 ans.push_back(it);
-            
         }
         else
         {
-            flag=true;
+            reverse(temp.begin(),temp.end());
             for(auto&it:temp)
                 ans.push_back(it);
         }
+        flag=!flag;
+        
     }
-    
     return ans;
 }
