@@ -8,21 +8,21 @@
  */
 class Solution {
 public:
+    //FLOYD's CYCLE DETECTION ALGORITHM
     bool hasCycle(ListNode *head) 
     {
-        if(!head)
-            return false;
-        set<ListNode*>S;
-        ListNode* temp=head;
-        while(temp->next)
+        ListNode* slow=head;
+        ListNode* fast=head;
+        
+        while(fast && fast->next)
         {
-            auto x=S.find(temp);
-            if(x!=S.end())
+            slow=slow->next;
+            fast=fast->next->next;
+            
+            if(slow==fast)
                 return true;
-            else
-                S.insert(temp);
-            temp=temp->next;
         }
+        
         return false;
     }
 };
