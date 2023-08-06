@@ -67,31 +67,29 @@ struct Node {
 //Function to insert a node in the middle of the linked list.
 Node* insertInMiddle(Node* head, int x)
 {
-    Node* new_node=new Node(x);
-    Node* fast=head;
-    Node* slow=head;
-    Node* slow_prev=NULL;
-    
-    while(fast && fast->next)
-    {
-        slow_prev=slow;
-        slow=slow->next;
-        fast=fast->next->next;
-    }
-    
-    //handling even and odd lengths
-    if(!fast)
-    {
-        Node* old=slow;
-        slow_prev->next=new_node;
-        new_node->next=old;
-    }
-    else
-    {
-        Node* old=slow->next;
-        slow->next=new_node;
-        new_node->next=old;
-    }
-    
+	Node* slow=head;
+	Node* fast=head;
+	Node* slow_prev=NULL;
+	Node* newNode=new Node(x);
+	
+	while(fast && fast->next)
+	{
+	    slow_prev=slow;
+	    slow=slow->next;
+	    fast=fast->next->next;
+	}
+	
+	if(!fast)    //fast==NULL means EVEN length
+	{
+	    slow_prev->next=newNode;
+	    newNode->next=slow;
+	}
+	else        //fast!=NULL means ODD length
+	{
+	    Node* temp=slow->next;
+	    slow->next=newNode;
+	    newNode->next=temp;
+	}
+	
 	return head;
 }
