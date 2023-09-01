@@ -138,26 +138,18 @@ void printCorner(Node *root)
     while(!q.empty())
     {
         int sz=q.size();
-        vector<int>level;
-        while(sz--)
+        for(int i=0;i<sz;++i)
         {
             Node* node=q.front();
             q.pop();
-            level.push_back(node->data);
+            if(i==0 || i==sz-1)
+                cout<<node->data<<" ";
             
             if(node->left)
                 q.push(node->left);
             if(node->right)
                 q.push(node->right);
         }
-        int n=level.size();
-        if(n==1)
-        {
-            cout<<level[0]<<" ";
-            continue;
-        }
-        cout<<level[0]<<" ";
-        cout<<level[n-1]<<" ";
     }
 
 }
