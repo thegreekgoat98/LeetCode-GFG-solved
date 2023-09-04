@@ -8,7 +8,6 @@
  */
 class Solution {
 public:
-    //FLOYD's CYCLE DETECTION ALGORITHM
     bool hasCycle(ListNode *head) 
     {
         ListNode* slow=head;
@@ -22,7 +21,6 @@ public:
             if(slow==fast)
                 return true;
         }
-        
         return false;
     }
 };
