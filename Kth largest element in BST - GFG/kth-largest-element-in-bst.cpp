@@ -98,22 +98,22 @@ class Solution
 {
     public:
     int ans=-1;
-    void inorder(Node* node,int &k)
+    void ulta_inorder(Node* node,int &k)
     {
         if(!node)
             return;
-        inorder(node->right,k);
+        ulta_inorder(node->right,k);
         k--;
         if(!k)
         {
             ans=node->data;
             return;
         }
-        inorder(node->left,k);
+        ulta_inorder(node->left,k);
     }
     int kthLargest(Node *root, int K)
     {
-        inorder(root,K);
+        ulta_inorder(root,K);
         return ans;
     }
 };
