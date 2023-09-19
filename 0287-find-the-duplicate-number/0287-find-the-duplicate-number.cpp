@@ -2,21 +2,29 @@ class Solution {
 public:
     int findDuplicate(vector<int>& nums) 
     {
-        int n=nums.size();
-        map<int,int>m;
-        for(int i=0;i<n;i++)
-            m[nums[i]]++;
-        ///////////////////
-        int ans=0;
-        for(auto it:m)
+        int slow=nums[0];
+        int fast=nums[0];
+        
+        slow=nums[slow];
+        fast=nums[nums[fast]];
+        
+        while(slow!=fast)
         {
-            if(it.second>1)
-            {
-                ans=it.first;
-                break;
-            }
-                
+            slow=nums[slow];
+            fast=nums[nums[fast]];
         }
-        return ans;
+        
+        slow=nums[0];
+        
+        while(slow!=fast)
+        {
+            slow=nums[slow];
+            fast=nums[fast];
+        }
+        
+        return slow; //or can return fast
     }
+    
+    //https://www.youtube.com/watch?v=49HrEGt6D2s -- Very good problem.
+//got linked list idea too.
 };
