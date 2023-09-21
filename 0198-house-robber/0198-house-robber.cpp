@@ -1,16 +1,25 @@
 class Solution {
 public:
-    int rob(vector<int>& arr) 
+    int n;
+    int dp[101];
+    int solve(int currInd,vector<int>&nums)
     {
-        int n=arr.size();
-        vector<int>dp(n); //in dp array, each index i represents, how much money can be robbed upto that index i.
-        dp[0]=arr[0]; //upto first index, you only have one option that is the first index itself
-        if(n>=2) // if size of given array is 2 or more than 2
-            dp[1]=max(arr[1],arr[0]);//upto second index, you have 2 options, either first index's or second index's itself, you will obviously choose maximum
+        if(currInd>=n)
+            return 0;
         
-        for(int i=2;i<n;++i) //now for each index, you can either choose either upto its last index, or the index itself and previous non adjacant element, i.e., i-2.
-            dp[i]=max(dp[i-1],arr[i]+dp[i-2]);
+        if(dp[currInd]!=-1)
+            return dp[currInd];
+        int steal=nums[currInd]+solve(currInd+2,nums);
+        int not_steal=solve(currInd+1,nums);
         
-        return dp[n-1];
+        return dp[currInd]=max(steal,not_steal);
+    }
+    /////////////////
+    int rob(vector<int>& nums) 
+    {
+        n=nums.size();
+        memset(dp,-1,sizeof(dp));
+        return solve(0,nums);
+  
     }
 };
