@@ -15,6 +15,55 @@ struct Node
 	}
 };
 
+
+// } Driver Code Ends
+/*Structure of the Node of the BST is as
+struct Node
+{
+	int data;
+	Node* left, *right;
+};
+*/
+
+class Solution{
+    
+    public:
+    vector<Node*>inorder;
+    int n;
+    void findInorder(Node* root)
+    {
+        if(!root)
+            return;
+        findInorder(root->left);
+        inorder.push_back(root);
+        findInorder(root->right);
+    }
+    ///////////////////////////////////////
+    Node* buildBST(int l,int r)
+    {
+        int mid=l+(r-l)/2;
+        if(l>r)
+            return NULL;
+        Node* root=inorder[mid];
+        root->left=buildBST(l,mid-1);
+        root->right=buildBST(mid+1,r);
+    }
+    // Your are required to complete this function
+    // function should return root of the modified BST
+    Node* buildBalancedTree(Node* root)
+    {
+    	findInorder(root);
+    	n=inorder.size();
+    	
+    	Node* newTree=buildBST(0,n-1);
+    	
+    	return newTree;
+    }
+};
+
+
+//{ Driver Code Starts.
+
 Node* insert(struct Node* node, int key){
 	if (node == NULL) return new Node(key);
 	if (key < node->data)
@@ -34,15 +83,14 @@ void preOrder(Node* node)
 
 int height(struct Node* node) 
 {
-  if (node==NULL) return 0;
-  else
-  {
-      int lDepth = height(node->left);
-      int rDepth = height(node->right);
-      if (lDepth > rDepth) return(lDepth+1);
-      else return(rDepth+1);
-  }
-return 2;
+  if (node==NULL) 
+    return 0;
+  int lDepth = height(node->left);
+  int rDepth = height(node->right);
+  if (lDepth > rDepth) 
+    return(lDepth+1);
+  else 
+    return(rDepth+1);
 } 
 Node *buildTree(string str) {
     // Corner Case
@@ -121,54 +169,11 @@ int main()
         getline(cin,tree);
         root = buildTree(tree);
         // cout<<height(root)<<endl;
-        root = buildBalancedTree(root);
+        Solution obj;
+        root = obj.buildBalancedTree(root);
         cout<<height(root)<<endl;
     }
 	return 0;
 }
 
 // } Driver Code Ends
-
-
-/*Structure of the Node of the BST is as
-struct Node
-{
-	int data;
-	Node* left, *right;
-};
-*/
-
-void findInorder(Node* root,vector<int>&inorder)
-{
-    if(!root)
-        return;
-    findInorder(root->left,inorder);
-    inorder.push_back(root->data);
-    findInorder(root->right,inorder);
-}
-
-Node* buildTree(int l,int r,vector<int>&inorder)
-{
-    if(l>r)
-        return NULL;
-        
-    int mid=l+(r-l)/2;
-    Node* root=new Node(inorder[mid]);
-    
-    root->left=buildTree(l,mid-1,inorder);
-    root->right=buildTree(mid+1,r,inorder);
-    
-    return root;
-}
-
-// Your are required to complete this function
-// function should return root of the modified BST
-Node* buildBalancedTree(Node* root)
-{
-    vector<int>inorder;
-	findInorder(root,inorder);
-	int n=inorder.size();
-	Node* node=buildTree(0,n-1,inorder);
-	
-	return node;
-}
