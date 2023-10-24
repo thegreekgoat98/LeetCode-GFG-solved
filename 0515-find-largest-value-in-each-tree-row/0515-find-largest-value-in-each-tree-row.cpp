@@ -11,35 +11,26 @@
  */
 class Solution {
 public:
-    
+    vector<int>ans;
+    void dfs(TreeNode* root,int depth)
+    {
+        if(!root)
+            return;
+        
+        if(depth==ans.size())
+            ans.push_back(root->val);
+        else
+            ans[depth]=max(ans[depth],root->val);
+            
+        dfs(root->left,depth+1);
+        dfs(root->right,depth+1);
+    }
+    ///////////
     vector<int> largestValues(TreeNode* root) 
     {
-        vector<int>ans;
-        if(!root)
-            return ans;
-        queue<TreeNode*>q;
-        q.push(root);
-        while(!q.empty())
-        {
-            int size=q.size();
-            int maxi=INT_MIN;
-            while(size--)
-            {
-                TreeNode* node=q.front();
-                q.pop();
-                
-                maxi=max(maxi,node->val);
-                
-                if(node->left)
-                    q.push(node->left);
-                if(node->right)
-                    q.push(node->right);
-                
-            }
-            ans.push_back(maxi);
-            
-        }
-        
+        dfs(root,0);
         return ans;
     }
 };
+
+// https://www.youtube.com/watch?v=iBaccPOzD-w -> MIK the legend
