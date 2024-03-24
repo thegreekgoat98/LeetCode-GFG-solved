@@ -8,10 +8,14 @@ public:
         slow=nums[slow];
         fast=nums[nums[fast]];
         
+        cout<<"slow: "<<slow<<endl;
+        cout<<"fast: "<<fast<<endl;
         while(slow!=fast)
         {
             slow=nums[slow];
             fast=nums[nums[fast]];
+            cout<<"slow: "<<slow<<endl;
+            cout<<"fast: "<<fast<<endl;
         }
         
         slow=nums[0];
@@ -22,9 +26,8 @@ public:
             fast=nums[fast];
         }
         
-        return slow; //or can return fast
+        return fast;  //or slow
     }
-    
-    //https://www.youtube.com/watch?v=49HrEGt6D2s -- Very good problem.
-//got linked list idea too.
 };
+
+//https://www.youtube.com/watch?v=49HrEGt6D2s
