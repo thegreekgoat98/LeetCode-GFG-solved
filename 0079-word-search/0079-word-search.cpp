@@ -1,6 +1,5 @@
-class Solution { //lc daily challange
+class Solution {
 public:
-    
     bool dfs(int i,int j,vector<vector<char>>& board,string& word,int k)
     {
         if(k==word.size())
