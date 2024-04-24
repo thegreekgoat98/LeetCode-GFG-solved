@@ -1,14 +1,15 @@
 class Solution {
 public:
-    int tribonacci(int n) 
+    int tribonacci(int n)
     {
-        long long tribo[40];
-        tribo[0]=0;
-        tribo[1]=1;
-        tribo[2]=1;
-        for(int i=3;i<40;i++)
-            tribo[i]=tribo[i-1]+tribo[i-2]+tribo[i-3];
-        ////////////////////////////////////
-        return tribo[n];
+        int arr[38];
+        arr[0]=0;
+        arr[1]=1;
+        arr[2]=1;
+        
+        for(int i=3;i<38;++i)
+            arr[i]=arr[i-3]+arr[i-2]+arr[i-1];
+        
+        return arr[n];
     }
 };
