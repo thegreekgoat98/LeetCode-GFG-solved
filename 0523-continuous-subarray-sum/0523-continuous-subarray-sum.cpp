@@ -2,12 +2,13 @@ class Solution {
 public:
     bool checkSubarraySum(vector<int>& nums, int k) 
     {
-        if(nums.size()<2)
+        int n=nums.size();
+        if(n<2)
             return false;
-        unordered_map<int,int>mp; //{sum,ind}
-        mp[0]=-1; //at the beginning we have sum=0 and index=-1
+        unordered_map<int,int>mp;
         int sum=0;
-        for(int i=0;i<nums.size();++i)
+        mp[sum]=-1;
+        for(int i=0;i<n;++i)
         {
             sum+=nums[i];
             sum%=k;
@@ -24,3 +25,5 @@ public:
         return false;
     }
 };
+
+// https://www.youtube.com/watch?v=20v8zSo2v18 --> can take reference from here --- almost same concept
