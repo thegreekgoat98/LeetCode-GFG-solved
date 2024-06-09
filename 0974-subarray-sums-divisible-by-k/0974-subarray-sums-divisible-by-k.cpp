@@ -2,11 +2,12 @@ class Solution {
 public:
     int subarraysDivByK(vector<int>& nums, int k) 
     {
-        unordered_map<int,int>mp; //{rem,freq}
-        mp[0]=1;
+        int n=nums.size();
         int cnt=0;
+        unordered_map<int,int>mp; //{sum,count}
         int sum=0;
-        for(int i=0;i<nums.size();++i)
+        mp[sum]=1;
+        for(int i=0;i<n;++i)
         {
             sum+=nums[i];
             sum%=k;
@@ -15,15 +16,14 @@ public:
                 sum+=k;
             
             auto x=mp.find(sum);
+            
             if(x!=mp.end())
             {
                 cnt+=x->second;
                 mp[sum]++;
             }
             else
-            {
                 mp[sum]=1;
-            }
         }
         return cnt;
     }
