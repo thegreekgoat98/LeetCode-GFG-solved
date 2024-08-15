@@ -10,13 +10,13 @@ public:
         {
             auto x=S.find(s[j]);
             
-            if(x==S.end())
+            if(x==S.end()) //nahi hai
             {
                 S.insert(s[j]);
                 ans=max(ans,j-i+1);
                 j++;
             }
-            else
+            else //hai
             {
                 S.erase(s[i]);
                 i++;
