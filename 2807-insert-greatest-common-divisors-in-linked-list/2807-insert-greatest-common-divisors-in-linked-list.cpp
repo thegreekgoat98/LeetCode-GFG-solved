@@ -12,20 +12,19 @@ class Solution {
 public:
     ListNode* insertGreatestCommonDivisors(ListNode* head) 
     {
-        ListNode* i=head;
-        ListNode* j=head->next;
+        ListNode* curr=head;
+        ListNode* agla=head->next;
         
-        while(j)
+        while(agla)
         {
-            int x=gcd(i->val,j->val);
+            int x=gcd(curr->val,agla->val);
             ListNode* newNode=new ListNode(x);
-            newNode->val=x;
             
-            i->next=newNode;
-            newNode->next=j;
+            curr->next=newNode;
+            newNode->next=agla;
             
-            i=j;
-            j=j->next;
+            curr=agla;
+            agla=agla->next;
         }
         
         return head;
