@@ -1,5 +1,6 @@
 class Solution {
 public:
+    //bit more cleaner code - user XOR operator
     int findTheLongestSubstring(string s) 
     {
         unordered_map<string,int>mp; //<state, index last it was seen>
@@ -11,15 +12,15 @@ public:
         for(int i=0;i<s.size();++i)
         {
             if(s[i]=='a')
-                state[0]=(state[0]+1)%2;
+                state[0]=state[0]^1;
             else if(s[i]=='e')
-                state[1]=(state[1]+1)%2;
+                state[1]=state[1]^1;
             else if(s[i]=='i')
-                state[2]=(state[2]+1)%2;
+                state[2]=state[2]^1;
             else if(s[i]=='o')
-                state[3]=(state[3]+1)%2;
+                state[3]=state[3]^1;
             else if(s[i]=='u')
-                state[4]=(state[4]+1)%2;
+                state[4]=state[4]^1;
             
             currState="";
             for(int k=0;k<5;++k)
@@ -35,6 +36,11 @@ public:
         return cnt;
     }
 };
+//learnings:
+/*
+1. XOR - same number if xored, resultant is 0.
+*/
 
+//----------------------------------------------
 //https://www.youtube.com/watch?v=6Xf5LfM-ciI - codestorywithMIK
 // This question is similar to "num of subarrays with sum 0"
