@@ -1,21 +1,21 @@
 class Solution {
 public:
-    bool checkInclusion(string s1, string s2) 
+    bool checkInclusion(string str1, string str2) 
     {
-        int k=s1.size();
-        int n=s2.size();
-        sort(s1.begin(),s1.end());
+        int k=str1.size();
+        sort(str1.begin(),str1.end());
         
         int i=0,j=0;
+        int n=str2.size();
         while(j<n)
         {
             if(j-i+1<k)
                 j++;
-            else if(j-i+1==k)
+            else
             {
-                string str=s2.substr(i,k);
+                string str=str2.substr(i,k);
                 sort(str.begin(),str.end());
-                if(s1==str)
+                if(str==str1)
                     return true;
                 i++;
                 j++;
@@ -24,3 +24,4 @@ public:
         return false;
     }
 };
+//TC --> O(nlogn) + O(nlog(logn))
