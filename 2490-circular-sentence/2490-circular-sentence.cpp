@@ -8,9 +8,7 @@ public:
         {
             char ch=sentence[i];
             
-            if(ch!=' ')
-                continue;
-            else if(ch==' ')
+            if(ch==' ')
             {
                 space=true;
                 if(sentence[i-1]!=sentence[i+1])
